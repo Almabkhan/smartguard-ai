@@ -1,5 +1,4 @@
 def show_dashboard():
-    # ... existing code yahan paste karo ...
 
 import streamlit as st
 import pandas as pd
