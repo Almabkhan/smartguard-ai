@@ -1,5 +1,9 @@
 import streamlit as st
+# FROM:
 from dashboard import show_dashboard
+
+# TO:
+import dashboard
 from gemini_api import FraudDetector
 
 st.set_page_config(page_title="SmartGuard AI", layout="wide")
