@@ -32,7 +32,7 @@ with tab2:
         
         base_score = mock_scores.get(sender, 75)  # Default 75 if sender not in list
         
-        # SMART ADJUSTMENT BASED ON TRANSACTION AMOUNT
+                # SMART ADJUSTMENT BASED ON TRANSACTION AMOUNT
         if amount < 100:
             score = max(20, base_score - 40)  # Small amount = MUCH LOWER risk
             amount_comment = "Very small amount - Low risk"
@@ -43,7 +43,8 @@ with tab2:
             score = min(90, base_score + 10)  # Medium-large amount = Some risk
             amount_comment = "Above average amount - Elevated risk"
         else:
-            score = base_score  # Normal amount = Base risk
+            # NORMAL AMOUNT RANGE: $100-$5000
+            score = max(40, base_score - 15)  # Normal amount = MODERATE risk
             amount_comment = "Normal transaction amount"
         
         # SMART REASONING BASED ON FINAL SCORE + AMOUNT
