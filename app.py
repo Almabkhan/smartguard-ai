@@ -24,25 +24,30 @@ with tab2:
     sender = st.text_input("Sender ID", value="Agent_Alpha")
     receiver = st.text_input("Receiver ID", value="Wallet_XYZ")
     
-    if st.button("🔍 Analyze Risk"):
-        detector = FraudDetector(api_key="YOUR_API_KEY")  # Replace with actual key
-        tx_data = {
-            "amount": f"${amount}",
-            "sender": sender,
-            "receiver": receiver,
-            "location": "Simulated Location",
-            "pattern": "normal"
+        if st.button("🔍 Analyze Risk"):
+        # Mock analysis for demo (no API key needed)
+        mock_scores = {
+            "Agent_Alpha": 85,
+            "HighRisk_Agent": 92, 
+            "Wallet_XYZ": 65,
+            "Trusted_Vendor": 45,
+            "New_User": 78
         }
-        score, reason = detector.analyze_transaction(tx_data)
+        
+        score = mock_scores.get(sender, 75)  # Default 75 if sender not in list
+        
+        # Mock reasons
+        if score >= 80:
+            reason = "🚨 High Risk: Unusual transaction pattern detected."
+            st.error("🚨 High Risk - Recommend Block")
+        elif score >= 60:
+            reason = "⚠️ Medium Risk: Slightly above average amount."
+            st.warning("⚠️ Medium Risk - Review Required")
+        else:
+            reason = "✅ Low Risk: Normal transaction pattern."
+            st.success("✅ Low Risk - Auto Approve")
         
         st.metric("Risk Score", f"{score}/100")
         st.info(f"**Reason:** {reason}")
-        
-        if score > 80:
-            st.error("🚨 High Risk - Recommend Block")
-        elif score > 60:
-            st.warning("⚠️ Medium Risk - Review Required")
-        else:
-            st.success("✅ Low Risk - Auto Approve")
 
 st.caption("SmartGuard AI | Built for Agentic Commerce Hackathon 2026")
