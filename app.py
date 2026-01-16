@@ -1,8 +1,4 @@
 import streamlit as st
-# FROM:
-from dashboard import show_dashboard
-
-# TO:
 import dashboard
 from gemini_api import FraudDetector
 
@@ -16,7 +12,7 @@ st.markdown("**Autonomous Fraud Detection for Agentic Commerce**")
 tab1, tab2 = st.tabs(["📊 Dashboard", "🤖 AI Analysis"])
 
 with tab1:
-    show_dashboard()
+    dashboard.show_dashboard()
 
 with tab2:
     st.subheader("Gemini AI Fraud Detection")
@@ -24,7 +20,7 @@ with tab2:
     sender = st.text_input("Sender ID", value="Agent_Alpha")
     receiver = st.text_input("Receiver ID", value="Wallet_XYZ")
     
-        if st.button("🔍 Analyze Risk"):
+    if st.button("🔍 Analyze Risk"):
         # Mock analysis for demo (no API key needed)
         mock_scores = {
             "Agent_Alpha": 85,
