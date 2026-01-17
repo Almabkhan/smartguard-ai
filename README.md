@@ -10,7 +10,7 @@ Real-time autonomous fraud detection for AI-powered commerce.
 
 ## 🚀 Quick Start
 ```bash
-git clone https://github.com/almab-khan/smartguard-ai
+git clone https://github.com/Almabkhan/smartguard-ai
 cd smartguard-ai
 pip install -r requirements.txt
 streamlit run app.py
